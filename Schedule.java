@@ -28,7 +28,7 @@ public class Schedule implements ActionListener{
     private int tableIndex, priorityNum,dayNum;
     private int numDays;
     private int numInputs = maxNumInputs;
-    private int areYouSure = 0;
+    private int areYouSure;
     
     private JFrame frame = new JFrame("Festival Schedule 2022");
     private JPanel panel[] = new JPanel[numPanels];
@@ -56,6 +56,7 @@ public class Schedule implements ActionListener{
         initFilePanel();
 
         numDays = _numDays;
+        areYouSure = 0;
     
         //frame characteristics
         setFrameSize(_numDays);
@@ -85,6 +86,7 @@ public class Schedule implements ActionListener{
             priority.length() > 0 && name.length() > 0 && day.length() > 0){
                 priorityNum = StartMenu.strToInt(priority);
                 dayNum = StartMenu.strToInt(day);
+                System.out.println(dayNum);
 
                 if(tableIndex != Integer.MIN_VALUE && validDay(numDays, dayNum) == true){
                     tableIndex = list[dayNum - 1].getActIndex(priorityNum);
